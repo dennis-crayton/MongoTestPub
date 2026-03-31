@@ -1,4 +1,11 @@
+// Load environment variables from .env file
+require('dotenv').config();
+
 const { MongoClient } = require("mongodb");
+
+// Get database credentials from environment variables
+const user = process.env.USER;
+const paswd = process.env.PASWD;
 
 // The uri string must be the connection string for the database (obtained on Atlas).
 const uri = "mongodb://" + user + ":" + paswd + "@ac-w336ll6-shard-00-00.homue6m.mongodb.net:27017,ac-w336ll6-shard-00-01.homue6m.mongodb.net:27017,ac-w336ll6-shard-00-02.homue6m.mongodb.net:27017/?ssl=true&replicaSet=atlas-80kqcm-shard-0&authSource=admin&appName=CMPS4150";
@@ -6,9 +13,6 @@ const uri = "mongodb://" + user + ":" + paswd + "@ac-w336ll6-shard-00-00.homue6m
 //   "dependencies": {
 //    "express": "^4.18.2",
 //    "mongodb": "^5.1.0"
-
-const user = process.env.user;
-const paswd = process.env.paswd;
 
 // Alternatively, to not expose the access keys, you may do:
 // MUST RUN: npm install dotenv  ON CONSOLE to begin
